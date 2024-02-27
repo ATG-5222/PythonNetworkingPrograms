@@ -8,9 +8,13 @@ def getNetAddress(ip, mask):
     netAddress = '.'.join(map(str, netList))
     return netAddress
 
-# Ejemplo de uso
-ip = "192.168.1.10"
-mask = "255.255.255.0"
+def main():
+    # Ejemplo de uso
+    ip = "192.168.1.10"
+    mask = "255.255.255.0"
+    netAddress = getNetAddress(ip, mask)
+    print(f"La direccion de red para {ip}/{mask} es: {netAddress}")
 
-netAddress = getNetAddress(ip, mask)
-print(f"La direccion de red para {ip}/{mask} es: {netAddress}")
+# driver code
+if __name__ == "__main__":
+    main()
