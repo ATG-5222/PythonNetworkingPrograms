@@ -1,7 +1,7 @@
-def getNetAddress(ip, mascara):
+def getNetAddress(ip, mask):
     # Convierte la dirección IP y la máscara de subred a una lista de números
     ipList = [int(x) for x in ip.split('.')]
-    maskList = [int(x) for x in mascara.split('.')]
+    maskList = [int(x) for x in mask.split('.')]
     # Realiza la operación bitwise AND en cada par de números de las listas
     netList = [a & b for a, b in zip(ipList, maskList)]
     # Convierte la lista de números de la dirección de red a una cadena
