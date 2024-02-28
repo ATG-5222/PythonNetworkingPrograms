@@ -10,15 +10,15 @@ def getNetAddress(ip, mask):
         if len(ipList) != 4:
             raise TypeError("Error: The IP address must have 4 octets.")
         for element in ipList:
-            if element > 255:
-                raise TypeError("Error: The IP address octets have a limit value of 255.")
+            if element > 255 or element < 0:
+                raise TypeError("Error: The IP address octets must have a value between 0 and 255.")
         # Realiza la operación bitwise AND en cada par de números de las listas
         netList = [a & b for a, b in zip(ipList, maskList)]
         # Convierte la lista de números de la dirección de red a una cadena
         netAddress = '.'.join(map(str, netList))
         return netAddress
     except ValueError:
-        print("Error: Enter a valid IP address and/or a valid subnet mask.")
+        print("Error: Enter a valid IP address.")
         return None
     except Exception as e:
         print(e)
